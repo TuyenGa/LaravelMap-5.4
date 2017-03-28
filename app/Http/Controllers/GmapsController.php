@@ -34,8 +34,11 @@ class GmapsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function details($id)
     {
+        $trip = Trip::find($id);
+
+        return view('gmaps.details',compact('trip'));
     }
 
     /**

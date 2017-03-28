@@ -53,14 +53,14 @@ class TripsController extends Controller
     {
 
         //persist the trip
-      Trip::create($request->all());
+      $trip = Trip::create($request->all());
 //        flash( 'Success!' ,'Your trips has been create! ');
         flash()->success('Success!','Your Trips has been create!');
 
 
         // rederect to landing page
 //        flash('trips successfully created! ');
-        return redirect()->back();
+        return redirect()->route('trip.addPhoto',[$trip->zip, $trip->street]);
     }
 
     /**
@@ -69,6 +69,9 @@ class TripsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
+
     public function show($zip, $street)
     {
 
@@ -106,7 +109,7 @@ class TripsController extends Controller
     public function edit($id)
     {
         $trip = Trip::find($id);
-        return view('trips.edit',compact($trip));
+        return view('trip.edit',compact($trip));
     }
 
     /**

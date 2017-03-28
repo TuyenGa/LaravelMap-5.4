@@ -45,7 +45,7 @@ class Trip extends Model
             return $this->hasMany('App\Photo');
     }
     
-    public  function user()
+    public  function users()
     {
         return $this->belongsTo(User::class);
     }

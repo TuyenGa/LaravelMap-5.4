@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('post.register') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -57,6 +57,20 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Birthday" class="col-md-4 control-label">Your Birthday</label>
+
+                            <div class="col-md-6">
+                                <input id="birthday" type="date" class="form-control" name="birthday" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneNumber" class="col-md-4 control-label">Your Phone Number</label>
+
+                            <div class="col-md-6">
+                                <input id="phoneNumber" type="number" class="form-control" name="phoneNumber" min="10" maxlength="15" required>
                             </div>
                         </div>
 
