@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -12,7 +13,7 @@ class UserController extends Controller
     {
         return view('auth.register');
     }
-    public function PostRegister(Request $request)
+    public function PostRegister(UserRequest $request)
     {
       
        $data = $request->only(['name', 'email' , 'password' , 'birthday' , 'phoneNumber']);

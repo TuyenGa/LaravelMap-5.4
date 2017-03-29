@@ -12,14 +12,7 @@ class UserRequest extends FormRequest
      * @return bool
      */
 
-    protected $table = 'users';
-    protected $fillable = [
-        'name' ,
-        'email',
-        'password',
-        'birthday',
-        'phoneNumber'
-    ];
+
     public function authorize()
     {
         return true;
