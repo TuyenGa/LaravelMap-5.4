@@ -53,7 +53,12 @@ class TripsController extends Controller
     {
 
         //persist the trip
-      $trip = Trip::create($request->all());
+        $data = $request->all();
+        $user = Auth::user();
+        $data['user_id'] = $user['id'];
+
+     $trip = Trip::create($data);
+
 //        flash( 'Success!' ,'Your trips has been create! ');
         flash()->success('Success!','Your Trips has been create!');
 

@@ -22,6 +22,7 @@ Route::get('/home', [
 Route::get('/',function (){
     return view('home');
 });
+
 Route::get('register','UserController@getRegister');
 Route::post('/register',[
     'as' => 'post.register',

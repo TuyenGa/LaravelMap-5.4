@@ -27,9 +27,4 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function register(Request $request)
-    {
-        $user = User::create($request->all());
-
-    }
 }

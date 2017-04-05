@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+
 
 class UserController extends Controller
 {
@@ -13,22 +13,22 @@ class UserController extends Controller
     {
         return view('auth.register');
     }
-    public function PostRegister(UserRequest $request)
+    public function PostRegister(Request $request)
     {
       
        $data = $request->only(['name', 'email' , 'password' , 'birthday' , 'phoneNumber']);
 
-       $repassword = $request->get('password');
+       $repassword = $request->get('repassword');
        if($repassword != $data['password'])
        {
-           return redirect()->action('UserController@getRegister')->width("message",['error'=>["Lỗi không thể đăng ký!"]]);
+           return redirect()->action('UserController@getRegister')->with("message",['error'=>["Nhập lại password!"]]);
        }
         $data['password'] = Hash::make($data['password']);
         $user = new User($data);
 
         if($user->save())
         {
-            return redirect()->action('HomeController@index')->with('messages',array("success" => ["Thêm tài khoản thành công"]));
+            return redirect('/login');
         }
         return redirect()->action('UserController@getRegister')->with("messages",["error" => ["lỗi không thể thêm tài khoản"]]);
     }

@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+@section('title','Chi tiết Sản phẩm')
 @section('content')
     <div class="row">
         <div class="col-md-4">

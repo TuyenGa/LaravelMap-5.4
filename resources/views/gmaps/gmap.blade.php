@@ -1,5 +1,5 @@
 	@extends('layouts.app')
-
+	@section('title','Thuê Nhà')
 
 	@section('content')
 		<input id="pac-input" type="text" placeholder="Search Box"/>

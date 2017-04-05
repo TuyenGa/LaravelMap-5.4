@@ -19,7 +19,8 @@ class Trip extends Model
         'price',
         'lat',
         'lng',
-        'description'
+        'description',
+        'user_id'
     ];
 
     public static function locatedAt( $zip, $street)

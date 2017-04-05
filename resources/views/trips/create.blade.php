@@ -1,11 +1,11 @@
 @extends('layouts/layout')
-
+@section('title','Create Trips')
 
 @section('content')
 
 		<h1>Trips Create: </h1>
 		<hr>
-		<form method="POST" action="/trip" enctype="multipart/form-data" class="col-md-8 col-md-offset-2">
+		<form method="POST" action="/trip" enctype="multipart/form-data" >
 			@include('trips.form')
 
 			@if(count($errors) > 0)
