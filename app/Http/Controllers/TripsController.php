@@ -27,8 +27,9 @@ class TripsController extends Controller
      */
     public function index()
     {
-        // flash('Hello World! ');
-       return view('home');
+        $trip = Trip::all();
+        return view('trips.index',compact('trip'));
+
     }
 
     /**
@@ -54,6 +55,7 @@ class TripsController extends Controller
 
         //persist the trip
         $data = $request->all();
+        $data['zip'] = 250000;
         $user = Auth::user();
         $data['user_id'] = $user['id'];
 

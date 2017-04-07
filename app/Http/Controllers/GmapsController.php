@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Trip;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -34,11 +35,13 @@ class GmapsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function details($id)
+    public function details($id )
     {
         $trip = Trip::find($id);
+        $user = $trip->User['user_id'];
 
-        return view('gmaps.details',compact('trip'));
+
+        return view('gmaps.details',compact('trip',$user));
     }
 
     /**

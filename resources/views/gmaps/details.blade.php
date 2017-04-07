@@ -11,6 +11,9 @@
 
             <h2>{!!$trip->price!!}</h2>
 
+            {{--<p>Được đăng bởi: {{ $trip->users->name }}</p>--}}
+            {{--<p>Liên hệ : {{$trip->users->phoneNumber}} </p>--}}
+
             <hr>
 
             <div class="description"> {!! nl2br($trip->description) !!}</div>

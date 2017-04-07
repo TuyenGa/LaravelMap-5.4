@@ -20,8 +20,8 @@
         <input type="text" name="state" id="state" class="form-control" value="{{old('state')}}" required>
     </div>
     <div class="form-group">
-        <label for="zip">Zip/postal code: </label>
-        <input type="text" name="zip" id="zip" class="form-control" value="{{old('zip')}}" required>
+        <label for="price">Price : </label>
+        <input type="number" name="price" id="price" class="form-control" value="{{old('price')}}" required>
     </div>
 
 </div>
@@ -32,10 +32,7 @@
 
 
 
-    <div class="form-group">
-        <label for="price">Price : </label>
-        <input type="number" name="price" id="price" class="form-control" value="{{old('price')}}" required>
-    </div>
+
 
     {!! Form::hidden('lat', null , ['id'=>'lat']) !!}
     {!! Form::hidden('lng', null , ['id'=>'lng']) !!}
