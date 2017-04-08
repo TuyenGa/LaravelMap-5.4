@@ -33,7 +33,7 @@ class Trip extends Model
 
     public function getPriceAttribute($price)
     {
-        return '$'.number_format($price);
+        return number_format($price,0,",",".").' VND';
     }
 
     public function addPhoto(Photo $photo)

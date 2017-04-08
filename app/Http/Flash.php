@@ -21,6 +21,7 @@ class Flash
             'title' => $title,
             'message' => $message,
             'level'  => $level
+
         ]);
 
     }
@@ -45,6 +46,10 @@ class Flash
     public function overlay($title,$message,$level='success')
     {
         return $this-> create($title,$message,$level,'flash_message_overlay');
+    }
+    public function delete($title,$message,$level='warning')
+    {
+        return $this->create($title,$message,$level,'flash_message_delete');
     }
 }
 //$flash->message("")

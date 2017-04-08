@@ -23,3 +23,26 @@
         });
     </script>
 @endif
+
+@if (session()->has('flash_message_delete'))
+    <script>
+        swal({
+                title: "{{session('flash_message_delete.title')}}",
+                text: "{{session('flash_message_delete.message')}}",
+                type: "{{session('flash_message_delete.level')}}",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it!",
+                cancelButtonText: "No, cancel plx!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function(isConfirm){
+                if (isConfirm) {
+                    swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                } else {
+                    swal("Cancelled", "Your imaginary file is safe :)", "error");
+                }
+            });
+    </script>
+    @endif

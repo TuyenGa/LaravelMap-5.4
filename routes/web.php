@@ -35,15 +35,24 @@ Route::resource('maps','GmapsController');
 
 Route::post('/maps','GmapsController@index');
 
-Route::get('/showMap','GmapsController@showMap');
+Route::get('/showMap',[
+    'as' => 'showmap.index',
+    'uses' => 'GmapsController@showMap'
+]);
 
 
 //Route::get('/create', 'TripsController@create');
 
 Route::resource('trip','TripsController');
 
-Route::get('maps/details/{id}','GmapsController@details');
-
+Route::get('maps/details/{id}',[
+    'as'=> 'details',
+    'uses'=>'GmapsController@details'
+]);
+Route::get('/showlist',[
+    'as' => 'showlist',
+    'uses' => 'HomeController@showList'
+]);
 Route::get('{zip}/{street}',[
     'as'=> 'trip.addPhoto',
     'uses'=>'TripsController@show'

@@ -9,10 +9,7 @@
 
             <h1>{{$trip->city}}</h1>
 
-            <h2>{!!$trip->price!!}</h2>
-
-            {{--<p>Được đăng bởi: {{ $trip->users->name }}</p>--}}
-            {{--<p>Liên hệ : {{$trip->users->phoneNumber}} </p>--}}
+            <h2>Giá : {!!$trip->price!!}</h2>
 
             <hr>
 

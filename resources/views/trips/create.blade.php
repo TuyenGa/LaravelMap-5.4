@@ -3,7 +3,7 @@
 
 @section('content')
 
-		<h1>Trips Create: </h1>
+		<h1>Thêm Dịch vụ </h1>
 		<hr>
 		<form method="POST" action="/trip" enctype="multipart/form-data" >
 			@include('trips.form')

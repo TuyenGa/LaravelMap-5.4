@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\TripRequest;
 use App\Photo;
 use App\Trip;
+use App\User;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -27,7 +28,11 @@ class TripsController extends Controller
      */
     public function index()
     {
+
         $trip = Trip::all();
+//        dd($trip);
+
+
         return view('trips.index',compact('trip'));
 
     }
@@ -116,7 +121,7 @@ class TripsController extends Controller
     public function edit($id)
     {
         $trip = Trip::find($id);
-        return view('trip.edit',compact($trip));
+        return view('trips.edit',compact('trip'));
     }
 
     /**
@@ -128,7 +133,17 @@ class TripsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $trip = Trip::findOrFail($id);
+        $data = $request->all();
+        if ($trip->update($data))
+        {
+            flash()->success('Success! ','Your Trips has been edit!');
+            return redirect()->route('trip.addPhoto',[$trip->zip, $trip->street]);
+        }
+        return redirect()->route('trip.edit',[$id]);
+
+
+
     }
 
     /**
@@ -137,8 +152,13 @@ class TripsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Trip $trip)
     {
-        //
+        if($trip->delete())
+        {
+            flash()->success('Success!','Your Trips has been delete! ');
+            return redirect()->back();
+        }
+        return redirect()->back();
     }
 }

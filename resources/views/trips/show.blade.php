@@ -9,7 +9,7 @@
 
             <h1>{{$trip->city}}</h1>
 
-            <h2>{!!$trip->price!!}</h2>
+            <h2> Giá :{!!$trip->price!!}</h2>
 
             <hr>
 
@@ -26,17 +26,18 @@
                         @endforeach
                 </div>
             @endforeach
+                <hr>
+                <h2>Add Your Photos</h2>
+
+                <form id="addPhotosForm" action="/{{$trip->zip}}/{{$trip->street}}/photos" method="POST" class="dropzone">
+
+                    {{csrf_field()}}
+
+                </form>
         </div>
     </div>
     <hr>
-    <h2>Add Your Photos</h2>
 
-    <form id="addPhotosForm" action="/{{$trip->zip}}/{{$trip->street}}/photos" method="POST" class="dropzone">
-
-        {{csrf_field()}}
-
-    </form>
-    <hr>
 @endsection
 @section('scripts.footer')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.js"></script>
